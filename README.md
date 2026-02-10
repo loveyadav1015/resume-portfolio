@@ -7,7 +7,9 @@ I am a Computer Science student passionate about the intersection of Computer Vi
 When the compiler is at rest, I’m usually:
 
  -> Exploring The Storyline games like ghost of tsushima , Spiderman 2 , Sekiro.
+ 
  -> Catching up on the latest One Piece chapters.
+ 
  -> Hunting for the most authentic Italian Pizza in town.
 
 
