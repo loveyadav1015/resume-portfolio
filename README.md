@@ -10,7 +10,7 @@ When the compiler is at rest, I’m usually:
  
  -> Catching up on the latest One Piece chapters.
  
- -> Hunting for the most authentic Italian Pizza in town.
+ 
 
 
 
