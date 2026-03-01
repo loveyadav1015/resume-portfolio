@@ -1,4 +1,4 @@
-Hi, I'm Love Yadav 👋
+Hi, I'm  Love Yadav 👋
 CS Student at IIIT Lucknow | AI & Full-Stack Developer
 I am a Computer Science student passionate about the intersection of Computer Vision, Blockchain, and Software Engineering. 
 
