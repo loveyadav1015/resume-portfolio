@@ -1,19 +1,50 @@
-import React from 'react';
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import DotField from './DotField';
+import { portfolioData } from '../data/portfolio';
 
 const Hero = () => {
+  const { identity } = portfolioData;
+  const heroRef = useRef(null);
+  const titleRef = useRef(null);
+  const taglineRef = useRef(null);
+
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+      tl.fromTo(
+        titleRef.current,
+        { opacity: 0, scale: 0.92, y: 30 },
+        { opacity: 1, scale: 1, y: 0, duration: 1.1, delay: 0.2 }
+      ).fromTo(
+        taglineRef.current,
+        { opacity: 0, y: 15 },
+        { opacity: 1, y: 0, duration: 0.8 },
+        '-=0.5'
+      );
+    }, heroRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section id="home" className="hero">
+    <section id="home" className="hero-section" ref={heroRef}>
+      <DotField />
+
       <div className="hero-content">
-        <h1>Hi, I'm <span className="highlight">Love Yadav</span></h1>
-        <h2>B.Tech Computer Science, IIIT Lucknow / Competitive Programmer / Full-Stack & ML Developer</h2>
-        
-        <div className="social-links" style={{ justifyContent: 'center', marginTop: '30px', flexWrap: 'wrap' }}>
-          <a href="mailto:loveyadav2538@gmail.com" className="social-icon">email</a>
-          <a href="tel:+919258974898" className="social-icon">phone</a>
-          <a href="https://github.com/loveyadav1015" target="_blank" rel="noopener noreferrer" className="social-icon">github</a>
-          <a href="https://www.linkedin.com/in/love-yadav-b13b46380/" target="_blank" rel="noopener noreferrer" className="social-icon">linkedin</a>
-          <a href="https://codeforces.com/profile/love_044" target="_blank" rel="noopener noreferrer" className="social-icon">codeforces</a>
-        </div>
+        <h1 className="hero-title" ref={titleRef}>
+          {identity.handle}
+        </h1>
+
+        {identity.tagline && (
+          <p className="hero-tagline" ref={taglineRef}>
+            {identity.tagline}
+          </p>
+        )}
       </div>
     </section>
   );
