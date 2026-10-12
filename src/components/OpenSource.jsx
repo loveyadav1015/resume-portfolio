@@ -1,27 +1,38 @@
-import React from 'react';
+import { portfolioData } from '../data/portfolio';
 
 const OpenSource = () => {
-  return (
-    <section id="open-source" className="section-padding">
-      <div className="section-header">
-        <h2>Open Source Contributions</h2>
-      </div>
+  const { openSource } = portfolioData;
 
-      <div className="project-card" style={{ padding: '25px', display: 'flex', flexDirection: 'column', gap: '15px' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '10px' }}>
-          <h3 style={{ margin: 0, fontSize: '1.4rem' }}>
-            corsair
-            <span style={{ fontSize: '0.7rem', border: '1px solid var(--accent-1)', padding: '2px 8px', borderRadius: '12px', marginLeft: '10px', verticalAlign: 'middle', color: 'var(--accent-1)' }}>7.5k★</span>
-          </h3>
-          <a href="https://github.com/corsairdev/corsair/pull/605" target="_blank" rel="noopener noreferrer" className="btn-small">PR #605 ↗</a>
+  return (
+    <div className="work-submodule" id="opensource-module">
+      <h3 className="module-title">Open Source Contributions</h3>
+      <article className="bento-card opensource-bento-card">
+        <div className="project-card-header">
+          <div className="project-title-group">
+            <h4 className="project-title">
+              {openSource.project}
+              <span className="project-chip stars-chip">{openSource.stars}</span>
+            </h4>
+          </div>
+          <a
+            href={openSource.prUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="card-action-link"
+          >
+            {openSource.prLabel}
+          </a>
         </div>
-        <div style={{ fontSize: '0.9rem', color: 'var(--text-main)', fontFamily: 'monospace' }}>TypeScript · Node.js</div>
-        <ul style={{ paddingLeft: '20px', color: 'var(--text-muted)', fontSize: '0.95rem' }}>
-          <li style={{ marginBottom: '8px' }}>Sentry webhook signatures were compared with plain ===, vulnerable to timing attacks.</li>
-          <li style={{ marginBottom: '8px' }}>Replaced it with the shared constant-time verifyHmacSignature helper and added 7 unit tests.</li>
+
+        <p className="project-stack">{openSource.stack}</p>
+
+        <ul className="project-points">
+          {openSource.points.map((pt, idx) => (
+            <li key={idx}>{pt}</li>
+          ))}
         </ul>
-      </div>
-    </section>
+      </article>
+    </div>
   );
 };
 

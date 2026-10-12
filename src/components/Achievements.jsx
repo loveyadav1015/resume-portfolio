@@ -1,40 +1,23 @@
-import React from 'react';
+import { portfolioData } from '../data/portfolio';
 
 const Achievements = () => {
-  const achievementsList = [
-    {
-      title: "Agentic Arena 2026",
-      desc: "Secured a place among the Top 15 Finalists in the AI Agent Battle organized by TechVerse Solutions, competing nationwide on agentic AI system design."
-    },
-    {
-      title: "Devengers PromptWars 2026",
-      desc: "Recognized for participation in a Google for Developers AI Prompt Engineering Hackathon featuring 1,500+ participants nationwide."
-    },
-    {
-      title: "Hackathon Competitor",
-      desc: "Actively participated in the Microsoft Imagine Cup (2026)."
-    },
-    {
-      title: "Competitive Programming",
-      desc: "Active algorithm solver on Codeforces, consistently tackling data structure and algorithm challenges involving greedy logic, bitwise operations, and stacks."
-    }
-  ];
+  const { achievements } = portfolioData;
 
   return (
-    <section id="achievements" className="section-padding">
-      <div className="section-header">
-        <h2>Achievements</h2>
-      </div>
-      <div className="skill-category" style={{ padding: '30px' }}>
-        <ul style={{ listStyleType: 'none', padding: 0 }}>
-          {achievementsList.map((item, idx) => (
-            <li key={idx} style={{ marginBottom: idx === achievementsList.length - 1 ? '0' : '15px', paddingBottom: idx === achievementsList.length - 1 ? '0' : '15px', borderBottom: idx === achievementsList.length - 1 ? 'none' : '1px solid var(--border-subtle)', color: 'var(--text-muted)' }}>
-              <strong style={{ color: 'var(--text-main)' }}>{item.title}</strong> — {item.desc}
+    <div className="work-submodule" id="achievements-module">
+      <h3 className="module-title">Achievements</h3>
+      <div className="bento-card achievements-bento-card">
+        <ul className="achievements-list">
+          {achievements.map((item, idx) => (
+            <li key={idx} className="achievement-item">
+              <strong className="achievement-title">{item.title}</strong>
+              <span className="achievement-separator"> — </span>
+              <span className="achievement-desc">{item.desc}</span>
             </li>
           ))}
         </ul>
       </div>
-    </section>
+    </div>
   );
 };
 
