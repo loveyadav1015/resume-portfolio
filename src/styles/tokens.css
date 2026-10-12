@@ -1,0 +1,15 @@
+:root {
+  --bg: #000000;
+  --surface: #0a0a0a;
+  --surface-alt: #0d0d0d;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(255, 255, 255, 0.18);
+  --text: #ffffff;
+  --text-muted: #999999;
+  --text-dim: #7e7e7e; /* WCAG AA contrast >= 4.5:1 against #000000 and #0a0a0a */
+  --radius: 24px;
+  --radius-sm: 12px;
+  --font-mono: 'Space Mono', monospace;
+  --font-sans: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --transition-smooth: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
